@@ -10,7 +10,15 @@ const tutorials = [
   'what is the difference between event capturing and bubbling?',
   'what is JSONP?'
 ];
-
-const titleCased = () => {
-  return tutorials
+function titleCased() {
+  return tutorials.map(function(tutorial) {
+    return tutorial
+      .split(" ") // Split the sentence into words
+      .map(function(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1); // Capitalize first letter of each word
+      })
+      .join(" "); // Join the words back into a sentence
+  });
 }
+
+console.log(titleCased());
